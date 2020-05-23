@@ -1,3 +1,24 @@
+/* 
+
+   This java class is inteded to be used as "extended-ldap-library" for pentaho kettle's script module. Which uses Javascript.
+   Goal of this module is just to have the possibility to delete user from a group from AD. Which is not easily achievable by 
+   Kettle's default LDAP-Output -module. 
+   
+   In order to use this you need to: 
+   1) Declare a package name for this class
+   2) Export this code as JAR -package and import to extlibs in kettle's configurations. 
+   
+   Simple way to call this from script module is: Packages.<path/to/package>.LdapSimpleAuth.<methodName> 
+
+   Example: 
+   
+   if (Packages.etlExtendedLdapLib.LdapSimpleAuth.checkConnection(ldapUser, ldapHost, ldapPort, ldapPassword) == "true") {
+    connectionStatus = "Connection is working!" 
+   }
+
+*/
+
+
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
